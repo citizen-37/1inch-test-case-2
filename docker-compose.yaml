@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  mq:
+    image: rabbitmq:3
+    ports:
+      - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: use
+      RABBITMQ_DEFAULT_PASS: password
