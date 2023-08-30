@@ -2,9 +2,10 @@ package config
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/kelseyhightower/envconfig"
 	yamlDoc "gopkg.in/yaml.v3"
-	"os"
 )
 
 type (
@@ -14,7 +15,10 @@ type (
 	}
 
 	Envs struct {
-		InfuraKey string `envconfig:"infura_key"`
+		InfuraKey      string `envconfig:"infura_key"`
+		RabbitUser     string `envconfig:"rabbit_user" default:"user"`
+		RabbitPassword string `envconfig:"rabbit_password" default:"password"`
+		RabbitHost     string `envconfig:"rabbit_host" default:"localhost:5672"`
 	}
 
 	Yaml struct {

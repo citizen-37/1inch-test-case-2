@@ -2,10 +2,12 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"os"
 	"os/signal"
 	"syscall"
 
+	"1inch-test-case-2/internal/config"
 	"1inch-test-case-2/internal/rabbit"
 	"github.com/wagslane/go-rabbitmq"
 	"go.uber.org/zap"
@@ -23,8 +25,13 @@ func main() {
 
 	logger, _ := zap.NewDevelopment()
 
+	cfg, err := config.Load()
+	if err != nil {
+		logger.Fatal("config load failed", zap.Error(err))
+	}
+
 	conn, err := rabbitmq.NewConn(
-		"amqp://user:password@localhost:5672",
+		fmt.Sprintf("amqp://%s:%s@%s", cfg.RabbitUser, cfg.RabbitPassword, cfg.RabbitHost),
 		rabbitmq.WithConnectionOptionsLogging,
 	)
 	if err != nil {

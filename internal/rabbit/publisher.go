@@ -11,8 +11,8 @@ import (
 )
 
 const (
-	ExchangeName = "balance_updates"
-	RoutingKey   = "pool"
+	ExchangeName = "pool"
+	RoutingKey   = "balance_updates"
 )
 
 type Publisher struct {

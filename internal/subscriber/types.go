@@ -1,15 +1,16 @@
 package subscriber
 
 import (
+	"context"
+
 	"1inch-test-case-2/internal/contracts"
 	"1inch-test-case-2/internal/service"
-	"context"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/event"
 )
 
-const sinkSize = 100 // выбрал не думая; нужен какой-то буффер, не тратил время на поиски обоснования
+const sinkSize = 100
 
 type (
 	ContractV2 interface {

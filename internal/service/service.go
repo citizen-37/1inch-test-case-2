@@ -7,8 +7,6 @@ import (
 	"go.uber.org/zap"
 )
 
-const eventBuffSize = 100 // рандомное значение, возможно буффер не нужен совсем - зависит от характера нагрузки
-
 type Service struct {
 	logger     *zap.Logger
 	subscriber Subscriber

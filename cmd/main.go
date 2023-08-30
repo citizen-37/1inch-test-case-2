@@ -45,7 +45,7 @@ func main() {
 	}
 
 	conn, err := rabbitmq.NewConn(
-		"amqp://user:password@localhost:5672",
+		fmt.Sprintf("amqp://%s:%s@%s", cfg.RabbitUser, cfg.RabbitPassword, cfg.RabbitHost),
 		rabbitmq.WithConnectionOptionsLogging,
 	)
 	if err != nil {
