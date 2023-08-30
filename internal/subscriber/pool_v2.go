@@ -1,15 +1,16 @@
 package subscriber
 
 import (
-	"1inch-test-case-2/internal/contracts"
-	"1inch-test-case-2/internal/service"
 	"context"
 	"fmt"
+	"math/big"
+
+	"1inch-test-case-2/internal/contracts"
+	"1inch-test-case-2/internal/service"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"go.uber.org/zap"
 	"golang.org/x/sync/errgroup"
-	"math/big"
 )
 
 type PoolV2 struct {

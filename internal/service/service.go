@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"fmt"
+
 	"go.uber.org/zap"
 )
 
@@ -24,8 +25,6 @@ func NewService(logger *zap.Logger, subscriber Subscriber, storage Storage) *Ser
 
 func (s *Service) Run(ctx context.Context) error {
 	sink, errs := s.subscriber.Subscribe(ctx)
-
-	// TODO: initialize state, keep it consistent
 
 	for {
 		select {
